@@ -1,0 +1,39 @@
+name = "itoya-ryokan-com"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+main = ".worker-next/index.mjs"
+assets = { directory = ".worker-next/assets", binding = "ASSETS" }
+
+# メモリ制限とCPU制限の設定
+limits = { cpu_ms = 10000 }
+
+# 環境変数（本番用）
+[env.production]
+name = "itoya-ryokan-com"
+
+[env.production.vars]
+NODE_ENV = "production"
+NEXT_PUBLIC_SITE_NAME = "いとや旅館"
+NEXT_PUBLIC_SITE_DESCRIPTION = "山形県南陽市 熊野大社の麓宮内 老舗旅館"
+NEXT_PUBLIC_SITE_URL = "https://itoya-ryokan.com"
+NEXT_PUBLIC_PHONE = "0238-47-2133"
+NEXT_PUBLIC_EMAIL = "info@itoya-ryokan.com"
+NEXT_PUBLIC_ADDRESS = "山形県南陽市宮内1024"
+
+# 開発環境用
+[env.staging]
+name = "itoya-ryokan-com-staging"
+
+[env.staging.vars]
+NODE_ENV = "development"
+NEXT_PUBLIC_SITE_URL = "https://itoya-ryokan-com"
+
+# ルーティング設定（カスタムドメイン用）
+[[env.production.routes]]
+pattern = "itoya-ryokan.com/*"
+zone_name = "itoya-ryokan.com"
+
+[[env.production.routes]]
+pattern = "www.itoya-ryokan.com/*"
+zone_name = "itoya-ryokan.com"
