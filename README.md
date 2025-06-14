@@ -1,9 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# いとや旅館オフィシャルウェブサイト
 
-## Getting Started
+山形県南陽市 熊野大社の麓宮内にある老舗旅館「いとや旅館」のオフィシャルウェブサイトです。
 
-First, run the development server:
+## 概要
 
+- 旅館の基本情報とサービス案内
+- お客様からのお問い合わせ対応
+- 外部予約サイトとの連携
+- 系列店「糸蔵」との情報連携
+
+## 技術スタック
+
+- **フレームワーク**: Next.js 15 (App Router)
+- **言語**: TypeScript
+- **スタイリング**: CSS Modules
+- **フォント**: Geist Sans, Geist Mono
+- **デプロイ**: Vercel (予定)
+
+## ページ構成
+
+```
+/                    # トップページ（ナビゲーション）
+├── /about          # 旅館について
+├── /content        # 施設・サービス
+├── /plan           # 客室案内
+├── /access         # アクセス情報
+├── /sns            # ギャラリー・SNS
+├── /reservation    # ご予約
+└── /contact        # お問い合わせ
+```
+
+## 外部連携
+
+- **糸蔵サービス**: https://itokura.com/ (お食事情報)
+- **予約システム**: 外部予約サイトとの連携予定
+
+## 環境変数
+
+`.env.local`ファイルに以下の環境変数を設定:
+
+```bash
+NEXT_PUBLIC_SITE_NAME=いとや旅館/糸蔵
+NEXT_PUBLIC_SITE_DESCRIPTION=山形県南陽市 熊野大社の麓宮内 老舗旅館
+NEXT_PUBLIC_SITE_URL=https://itoya-ryokan.com
+NEXT_PUBLIC_PHONE=0238-47-2133
+NEXT_PUBLIC_EMAIL=info@itoya-ryokan.com
+NEXT_PUBLIC_ADDRESS=山形県南陽市宮内
+```
+
+## セットアップ
+
+1. 依存関係のインストール:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+2. 開発サーバーの起動:
 ```bash
 npm run dev
 # or
@@ -14,23 +70,27 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. ブラウザで [http://localhost:3000](http://localhost:3000) を開く
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## デプロイ
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Vercelでのデプロイを推奨します:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 開発状況
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [x] 基本レイアウト構築
+- [x] 環境変数設定
+- [x] ページルーティング
+- [x] 共通フッター実装
+- [ ] 各ページのコンテンツ実装
+- [ ] レスポンシブデザイン対応
+- [ ] 予約システム連携
+- [ ] SEO最適化
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ライセンス
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2025 いとや旅館/糸蔵. All rights reserved.
